@@ -4,7 +4,62 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TrialMatch — AI Clinical Trial Finder</title>
+    <title>AgentApply — Public Program Application Agents</title>
+    <script id="coframe-installation-script">
+      (function () {
+        const projectId = "__COFRAME_PROJECT_ID__";
+
+        if (!projectId || projectId.includes("VITE_COFRAME_PROJECT_ID")) {
+          return;
+        }
+
+        if (/cf_disable/.test(location.search)) {
+          return console.warn("[Coframe] Disabled via URL parameter");
+        }
+
+        const config = {
+          projectId,
+          startTime: Date.now(),
+          timeoutMs: 1000,
+          currentUrl: window.location.href,
+        };
+        const scriptId = "coframe-sdk-js";
+
+        if (document.getElementById(scriptId)) {
+          return console.warn("[Coframe] SDK already installed");
+        }
+
+        window.CFQ = window.CFQ || [];
+        window.CFQ.push({ config });
+
+        const style = document.createElement("style");
+        style.id = "coframe-antiflicker";
+        style.textContent =
+          ":root { --cf-show: 0;}" +
+          "body { opacity: var(--cf-show) !important; transition: opacity 0.2s ease; }";
+
+        function show() {
+          document.documentElement.style.setProperty("--cf-show", "1");
+          style.parentNode && style.parentNode.removeChild(style);
+        }
+
+        document.head.appendChild(style);
+        setTimeout(show, config.timeoutMs);
+
+        const edgeUrl = new URL("https://edge.cofra.me/cf.js");
+        edgeUrl.searchParams.set("config", encodeURIComponent(JSON.stringify(config)));
+
+        const script = document.createElement("script");
+        script.id = scriptId;
+        script.async = true;
+        script.src = edgeUrl.toString();
+        script.onerror = function () {
+          show();
+          console.error("[Coframe] SDK failed to load");
+        };
+        document.head.appendChild(script);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

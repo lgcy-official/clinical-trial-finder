@@ -84,7 +84,7 @@ export default function PatientForm({ onSubmit, onDemo, loading }) {
           </div>
 
           <div style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
-            <button className="btn-ghost" onClick={onDemo}>Load demo</button>
+            <button className="btn-ghost" onClick={onDemo} data-coframe-conversion="load-trials-demo">Load demo</button>
             <button className="btn-primary" disabled={!canNext} onClick={() => setStep(2)}>
               Next →
             </button>
@@ -116,8 +116,8 @@ export default function PatientForm({ onSubmit, onDemo, loading }) {
           <div style={{ display: "flex", gap: 10, justifyContent: "space-between" }}>
             <button className="btn-ghost" onClick={() => setStep(1)}>← Back</button>
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "flex-end" }}>
-              <button className="btn-ghost" onClick={onDemo}>Load demo</button>
-              <button className="btn-primary" onClick={handleSubmit} disabled={loading}>
+              <button className="btn-ghost" onClick={onDemo} data-coframe-conversion="load-trials-demo">Load demo</button>
+              <button className="btn-primary" onClick={handleSubmit} disabled={loading} data-coframe-conversion="search-trials">
                 {loading ? <><span className="spinner" style={{ width: 16, height: 16 }} /> Finding trials...</> : "Find My Trials →"}
               </button>
             </div>

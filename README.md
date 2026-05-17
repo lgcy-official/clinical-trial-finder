@@ -106,6 +106,28 @@ Every opportunity can export a JSON manifest:
 
 This is the agent-native layer: a structured handoff format for high-stakes public-program workflows.
 
+### Coframe-Ready Optimization
+
+AgentApply is prepared for Coframe optimization with an optional project ID:
+
+```sh
+VITE_COFRAME_PROJECT_ID=your_coframe_project_id_here
+```
+
+When this variable is set, the app installs Coframe in the page `<head>` so the experience can be optimized and measured through Coframe.
+
+The product is set up around conversion actions that matter for this workflow:
+
+- Loading a demo
+- Running a live search
+- Running the application team
+- Approving the agent handoff
+- Copying or downloading the application packet
+- Copying or downloading the AgentApply manifest
+- Opening the official ClinicalTrials.gov, Grants.gov, or SAM.gov route
+
+The strongest Coframe use case is optimizing the activation path: which headline, copy, call-to-action, or cockpit layout gets users from search to a completed application packet or approved agent handoff.
+
 ### Demo Mode
 
 Each mode includes a `Load demo` button. This lets judges see the full workflow even if an external API is slow, unavailable, or missing a key during the demo.
@@ -133,6 +155,7 @@ Each mode includes a `Load demo` button. This lets judges see the full workflow 
 - Grants.gov API
 - SAM.gov API
 - Anthropic Claude or Google Gemini for AI analysis
+- Coframe-ready script integration for UI/copy optimization
 - Browser localStorage for local readiness tracking
 - Custom `agentapply.manifest.v1` JSON protocol
 - HTML, CSS, and JavaScript
@@ -187,6 +210,12 @@ To enable live government contract searches:
 
 ```sh
 SAM_API_KEY=your_sam_gov_public_api_key_here
+```
+
+To enable Coframe optimization:
+
+```sh
+VITE_COFRAME_PROJECT_ID=your_coframe_project_id_here
 ```
 
 Grant searches use Grants.gov public endpoints and do not require an API key for basic search.

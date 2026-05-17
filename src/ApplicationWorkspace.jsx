@@ -611,8 +611,8 @@ export default function ApplicationWorkspace({ domain, profile, items }) {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 9 }}>
             <p style={{ fontSize: 12, fontWeight: 500, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Draft packet</p>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
-              <button className="btn-ghost" onClick={copyPacket} style={{ fontSize: 12, padding: "7px 10px" }}>{copied ? "Copied" : "Copy"}</button>
-              <button className="btn-ghost" onClick={downloadPacket} style={{ fontSize: 12, padding: "7px 10px" }}>Download</button>
+              <button className="btn-ghost" onClick={copyPacket} data-coframe-conversion="copy-application-packet" style={{ fontSize: 12, padding: "7px 10px" }}>{copied ? "Copied" : "Copy"}</button>
+              <button className="btn-ghost" onClick={downloadPacket} data-coframe-conversion="download-application-packet" style={{ fontSize: 12, padding: "7px 10px" }}>Download</button>
             </div>
           </div>
 
@@ -625,12 +625,12 @@ export default function ApplicationWorkspace({ domain, profile, items }) {
 
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 12 }}>
             {packet.officialUrl && (
-              <a href={packet.officialUrl} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ textDecoration: "none", fontSize: 13, padding: "10px 14px" }}>
+              <a href={packet.officialUrl} target="_blank" rel="noopener noreferrer" className="btn-primary" data-coframe-conversion="open-official-route" style={{ textDecoration: "none", fontSize: 13, padding: "10px 14px" }}>
                 {packet.primaryAction}
               </a>
             )}
             {mailto && (
-              <a href={mailto} className="btn-ghost" style={{ textDecoration: "none", fontSize: 13, padding: "10px 14px" }}>
+              <a href={mailto} className="btn-ghost" data-coframe-conversion="open-email-draft" style={{ textDecoration: "none", fontSize: 13, padding: "10px 14px" }}>
                 Open email draft
               </a>
             )}
@@ -650,10 +650,10 @@ export default function ApplicationWorkspace({ domain, profile, items }) {
             <p style={{ fontSize: 13, color: "var(--text2)", marginTop: 5, lineHeight: 1.5 }}>A machine-readable handoff for agents with explicit permissions, blocked actions, readiness state, and a human approval gate.</p>
           </div>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
-            <button className="btn-primary" onClick={startAgentRun} style={{ fontSize: 13, padding: "10px 14px" }}>
+            <button className="btn-primary" onClick={startAgentRun} data-coframe-conversion="run-application-team" style={{ fontSize: 13, padding: "10px 14px" }}>
               {currentProgress.runStarted ? "Re-run agents" : "Run application team"}
             </button>
-            <button className="btn-ghost" onClick={approveHandoff} style={{ fontSize: 13, padding: "10px 14px" }}>
+            <button className="btn-ghost" onClick={approveHandoff} data-coframe-conversion="approve-agent-handoff" style={{ fontSize: 13, padding: "10px 14px" }}>
               {currentProgress.approved ? "Approved" : "Approve handoff"}
             </button>
           </div>
@@ -693,8 +693,8 @@ export default function ApplicationWorkspace({ domain, profile, items }) {
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 9 }}>
               <p style={{ fontSize: 12, fontWeight: 500, color: "var(--text3)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Agent view manifest</p>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
-                <button className="btn-ghost" onClick={copyManifest} style={{ fontSize: 12, padding: "7px 10px" }}>{manifestCopied ? "Copied" : "Copy JSON"}</button>
-                <button className="btn-ghost" onClick={downloadManifest} style={{ fontSize: 12, padding: "7px 10px" }}>Download JSON</button>
+                <button className="btn-ghost" onClick={copyManifest} data-coframe-conversion="copy-agentapply-manifest" style={{ fontSize: 12, padding: "7px 10px" }}>{manifestCopied ? "Copied" : "Copy JSON"}</button>
+                <button className="btn-ghost" onClick={downloadManifest} data-coframe-conversion="download-agentapply-manifest" style={{ fontSize: 12, padding: "7px 10px" }}>Download JSON</button>
               </div>
             </div>
             <textarea

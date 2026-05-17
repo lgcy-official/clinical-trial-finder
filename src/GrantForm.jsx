@@ -114,8 +114,8 @@ export default function GrantForm({ onSubmit, onDemo, loading }) {
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
-          <button className="btn-ghost" onClick={onDemo}>Load demo</button>
-          <button className="btn-primary" onClick={() => onSubmit(form)} disabled={!canSubmit || loading}>
+          <button className="btn-ghost" onClick={onDemo} data-coframe-conversion="load-grants-demo">Load demo</button>
+          <button className="btn-primary" onClick={() => onSubmit(form)} disabled={!canSubmit || loading} data-coframe-conversion="search-grants">
             {loading ? <><span className="spinner" style={{ width: 16, height: 16 }} /> Finding grants...</> : "Find Grants"}
           </button>
         </div>
