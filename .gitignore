@@ -1,3 +1,19 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+.envrc
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+credentials.json
+service-account*.json
+*api-key*
+*apikey*
+*secret*
+
 # Logs
 logs
 *.log
@@ -6,9 +22,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-.env
-.env.*
-!.env.example
 
 node_modules
 dist
